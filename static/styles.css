@@ -131,6 +131,151 @@ body {
   font-size: 0.95rem;
 }
 
+.film-page {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.home-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-link:hover,
+.home-link:focus {
+  text-decoration: underline;
+}
+
+.film-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+  gap: 2rem;
+  max-width: 1100px;
+  min-height: calc(100vh - 7rem);
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.film-details,
+.confirm-panel {
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.film-details {
+  display: grid;
+  grid-template-rows: minmax(15rem, 45vh) 1fr;
+  overflow: hidden;
+}
+
+.key-visual {
+  min-height: 15rem;
+  background:
+    linear-gradient(135deg, rgba(201, 54, 43, 0.2), rgba(22, 24, 29, 0.1)),
+    #e4e7ec;
+  border-bottom: 1px solid var(--line);
+}
+
+.film-copy {
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.film-title {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 0.95;
+}
+
+.film-year {
+  margin: 0.75rem 0 1.5rem;
+  color: var(--muted);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.plot-summary {
+  margin: 0;
+  max-width: 38rem;
+  color: #303642;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.section-title {
+  margin: 2rem 0 0.8rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.2rem;
+  padding: 0 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f6f7f9;
+  font-weight: 700;
+}
+
+.confirm-panel {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.confirm-question {
+  max-width: 26rem;
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 1;
+  font-weight: 900;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.choice-button {
+  display: grid;
+  place-items: center;
+  width: 5rem;
+  height: 5rem;
+  border: 0.18rem solid currentColor;
+  border-radius: 50%;
+  background: var(--surface);
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.choice-no {
+  color: var(--accent);
+}
+
+.choice-yes {
+  color: #138a36;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -169,5 +314,24 @@ body {
 
   .year {
     grid-column: 2;
+  }
+}
+
+@media (max-width: 820px) {
+  .film-page {
+    padding: 1rem;
+  }
+
+  .film-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .film-details {
+    grid-template-rows: 13rem auto;
+  }
+
+  .confirm-panel {
+    min-height: 20rem;
   }
 }

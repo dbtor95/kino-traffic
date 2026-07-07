@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Selected Film - Kino Traffic</title>
+    <link rel="stylesheet" href="static/styles.css">
+  </head>
+  <body>
+    <main class="film-page">
+      <a class="home-link" href="index.html">Back to search</a>
+
+      <section class="film-layout" aria-label="Selected film">
+        <article id="selected-film" class="film-details"></article>
+
+        <aside class="confirm-panel" aria-label="Confirm selected film">
+          <p class="confirm-question">Is this the film you were thinking of?</p>
+          <div class="confirm-actions">
+            <button class="choice-button choice-no" type="button" aria-label="No">X</button>
+            <button class="choice-button choice-yes" type="button" aria-label="Yes">&check;</button>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="static/app.js"></script>
+  </body>
+</html>
