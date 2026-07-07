@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kino Traffic</title>
+    <link rel="stylesheet" href="static/styles.css">
+  </head>
+  <body>
+    <main class="home">
+      <section class="search-panel" aria-labelledby="site-title">
+        <p class="eyebrow">Kino Traffic</p>
+        <h1 id="site-title" class="logotype">Kino Traffic</h1>
+
+        <div class="search-shell">
+          <label class="visually-hidden" for="film-search">Search for a film</label>
+          <input
+            id="film-search"
+            class="search-input"
+            type="search"
+            placeholder="Type the title of a film you like..."
+            autocomplete="off"
+            aria-controls="autocomplete-results"
+            aria-expanded="false"
+          >
+
+          <div id="autocomplete-results" class="results" role="listbox" hidden></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="static/app.js"></script>
+  </body>
+</html>
