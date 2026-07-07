@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment variables / secrets
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode local settings
+.vscode/
+
+# Test/cache files
+.pytest_cache/
+.coverage
+htmlcov/
