@@ -159,8 +159,15 @@ body {
   align-items: stretch;
 }
 
+.film-layout.has-recommendations {
+  grid-template-columns: minmax(18rem, 0.55fr) minmax(0, 1.45fr);
+  max-width: 1400px;
+}
+
 .film-details,
-.confirm-panel {
+.confirm-panel,
+.category-panel,
+.recommendation-panel {
   border: 1px solid var(--line);
   border-radius: 0.5rem;
   background: var(--surface);
@@ -231,6 +238,16 @@ body {
   font-weight: 700;
 }
 
+.pill.is-highlighted,
+.pill.is-hovered {
+  box-shadow: 0 0 0 3px rgba(22, 24, 29, 0.08);
+}
+
+.pill.is-hovered {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
 .confirm-panel {
   display: grid;
   place-items: center;
@@ -274,6 +291,193 @@ body {
 
 .choice-yes {
   color: #138a36;
+}
+
+.category-panel,
+.recommendation-panel {
+  padding: 1.5rem;
+}
+
+.category-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1;
+}
+
+.panel-note {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.category-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.category-button,
+.submit-button,
+.secondary-button {
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.category-button {
+  min-height: 3rem;
+  border: 1px solid var(--line);
+  background: #f6f7f9;
+  color: var(--ink);
+}
+
+.category-button.is-selected {
+  border-color: currentColor;
+}
+
+.category-direction.is-selected,
+.reason-pill.category-direction,
+.pill.category-direction.is-highlighted,
+.pill.category-direction.is-hovered {
+  background: #e8f1ff;
+  color: #1d5fa7;
+  border-color: #8db8e8;
+}
+
+.category-music.is-selected,
+.reason-pill.category-music,
+.pill.category-music.is-highlighted,
+.pill.category-music.is-hovered {
+  background: #ffeceb;
+  color: var(--accent);
+  border-color: #eeaaa5;
+}
+
+.category-cinematography.is-selected,
+.reason-pill.category-cinematography,
+.pill.category-cinematography.is-highlighted,
+.pill.category-cinematography.is-hovered {
+  background: #fff4cf;
+  color: #8a6400;
+  border-color: #e6c968;
+}
+
+.category-acting.is-selected,
+.reason-pill.category-acting,
+.pill.category-acting.is-highlighted,
+.pill.category-acting.is-hovered {
+  background: #e9f7ee;
+  color: #138a36;
+  border-color: #8bc5a0;
+}
+
+.category-error {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.submit-button,
+.secondary-button {
+  min-height: 3rem;
+  padding: 0 1.2rem;
+}
+
+.submit-button {
+  border: 0;
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.secondary-button {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.recommendation-panel {
+  overflow-y: auto;
+}
+
+.recommendation-header {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.recommendation-card {
+  position: relative;
+  min-width: 0;
+}
+
+.recommendation-poster {
+  aspect-ratio: 2 / 3;
+  border: 1px solid #cfd5df;
+  border-radius: 0.35rem;
+  background:
+    linear-gradient(135deg, rgba(201, 54, 43, 0.16), rgba(22, 24, 29, 0.08)),
+    #e4e7ec;
+}
+
+.recommendation-card h3 {
+  margin: 0.7rem 0 0.25rem;
+  font-size: 1rem;
+  line-height: 1.15;
+}
+
+.recommendation-card p,
+.recommendation-card strong {
+  display: block;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.recommendation-card strong {
+  margin-top: 0.2rem;
+  color: var(--ink);
+}
+
+.reason-list {
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  max-height: calc(100% - 1rem);
+  overflow-y: auto;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.recommendation-card:hover .reason-list,
+.recommendation-card:focus-within .reason-list {
+  opacity: 1;
+}
+
+.reason-pill {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.3rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
 .visually-hidden {
@@ -327,11 +531,26 @@ body {
     min-height: auto;
   }
 
+  .film-layout.has-recommendations {
+    grid-template-columns: 1fr;
+  }
+
   .film-details {
     grid-template-rows: 13rem auto;
   }
 
-  .confirm-panel {
+  .confirm-panel,
+  .category-panel {
     min-height: 20rem;
+  }
+
+  .recommendation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1200px) {
+  .recommendation-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

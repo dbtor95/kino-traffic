@@ -13,11 +13,11 @@
       <section class="film-layout" aria-label="Selected film">
         <article id="selected-film" class="film-details"></article>
 
-        <aside class="confirm-panel" aria-label="Confirm selected film">
+        <aside id="selection-panel" class="confirm-panel" aria-label="Confirm selected film">
           <p class="confirm-question">Is this the film you were thinking of?</p>
           <div class="confirm-actions">
-            <button class="choice-button choice-no" type="button" aria-label="No">X</button>
-            <button class="choice-button choice-yes" type="button" aria-label="Yes">&check;</button>
+            <button class="choice-button choice-no" type="button" aria-label="No" data-action="back">X</button>
+            <button class="choice-button choice-yes" type="button" aria-label="Yes" data-action="show-categories">&check;</button>
           </div>
         </aside>
       </section>
